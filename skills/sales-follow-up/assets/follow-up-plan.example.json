@@ -1,0 +1,10 @@
+{
+  "customer_ref": "customer:001",
+  "recipient_ref": "customer:001#email",
+  "channel": "email",
+  "objective": "Confirm interest and next meeting",
+  "authority_status": "authorized",
+  "consent_status": "allowed",
+  "human_review_required": false,
+  "next_action": "Record response or schedule retry according to policy"
+}

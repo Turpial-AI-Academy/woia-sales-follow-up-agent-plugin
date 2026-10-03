@@ -1,0 +1,11 @@
+import { readFile } from "node:fs/promises";
+const i=process.argv.indexOf("--file"); if(i<0||!process.argv[i+1]) throw new Error("--file is required");
+const p=JSON.parse(await readFile(process.argv[i+1],"utf8"));
+const errors=[];
+for(const k of ["customer_ref","recipient_ref","channel","objective","next_action"]) if(typeof p[k]!=="string"||!p[k].trim()) errors.push(k+" is required");
+if(!["authorized","pending","denied"].includes(p.authority_status)) errors.push("authority_status must be authorized|pending|denied");
+if(!["allowed","unknown","blocked","not-applicable"].includes(p.consent_status)) errors.push("consent_status must be allowed|unknown|blocked|not-applicable");
+if(typeof p.human_review_required!=="boolean") errors.push("human_review_required must be boolean");
+const executable=p.authority_status==="authorized"&&["allowed","not-applicable"].includes(p.consent_status)&&errors.length===0;
+console.log(JSON.stringify({result:errors.length?"FAIL":"PASS",executable,errors},null,2));
+process.exitCode=errors.length?2:0;
