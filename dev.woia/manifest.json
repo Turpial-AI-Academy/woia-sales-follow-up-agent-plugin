@@ -1,9 +1,14 @@
 {
   "schema": "dev.woia.provider-manifest/v1",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "authoring_profile": "thin",
   "origin": "native",
   "department": "sales",
   "capability": "sales.follow-up",
-  "skill": "sales-follow-up"
+  "skill": "sales-follow-up",
+  "consumer_departments": [
+    "sales",
+    "leasing",
+    "customer-service"
+  ]
 }
