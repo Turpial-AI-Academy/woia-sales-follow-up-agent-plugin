@@ -1,6 +1,12 @@
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 const text = value => typeof value === "string" && value.trim().length > 0;
+export function followUpPlanDigest(plan) {
+  const normalize = value => Array.isArray(value) ? value.map(normalize) : value && typeof value === "object"
+    ? Object.fromEntries(Object.keys(value).sort().map(key => [key, normalize(value[key])])) : value;
+  return createHash("sha256").update(JSON.stringify(normalize(plan))).digest("hex");
+}
 export function validateFollowUpPlan(p) {
   const errors=[];
   for(const k of ["customer_ref","recipient_ref","channel","objective","next_action"]) if(!text(p?.[k])) errors.push(k+" is required");
@@ -13,7 +19,7 @@ export function validateFollowUpPlan(p) {
 // The embedding host supplies CURRENT authenticated, source-resolved scope, never request fields.
 // No transport, durable write or competent acceptance is performed by this evaluator.
 export function evaluateFollowUp(action, plan, context) {
-  if (!context || context.authenticated !== true || context.current !== true || context.revoked !== false ||
+  if (!context || context.authorized_plan_sha256 !== followUpPlanDigest(plan) || context.authenticated !== true || context.current !== true || context.revoked !== false ||
       !text(context.programme) || !["sales", "leasing", "customer-service"].includes(context.department) ||
       !text(context.organization_ref) || !text(context.task_ref) || !text(context.policy_ref) ||
       !text(context.source_authority_ref) || context.source_state !== "ACCEPTED_CURRENT" ||
