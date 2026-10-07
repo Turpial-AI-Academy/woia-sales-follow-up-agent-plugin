@@ -44,4 +44,3 @@ It requires customer_ref, recipient_ref, channel, objective, authority status, c
 ## Completion
 
 Return confirmed/partial/rejected/unknown communication evidence plus next action and any required pipeline update.
-
