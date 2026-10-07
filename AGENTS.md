@@ -7,4 +7,3 @@ Thin WOIA Sales provider.
 - Generic Factory/certification belongs in woia-ecosystem.
 - Project personalization belongs in WOIA overlays.
 - Consumers install/update only; canonical source/release changes are maintainer-controlled.
-
