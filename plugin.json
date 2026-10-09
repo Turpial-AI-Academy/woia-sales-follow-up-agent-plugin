@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "woia-sales-follow-up",
-  "version": "0.5.1",
+  "version": "0.5.6",
   "description": "WOIA Sales provider for consent/authority-aware follow-up planning and controlled outbound communication with recipient, channel, timing, outcome, and unknown-effect evidence.",
   "author": {
     "name": "Turpial AI Academy",
