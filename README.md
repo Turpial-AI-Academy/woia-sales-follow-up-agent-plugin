@@ -1,6 +1,6 @@
 # woia-sales-follow-up
 
-WOIA Sales v0.5.6 provider for `sales.follow-up`.
+WOIA Sales v0.5.7 provider for `sales.follow-up`.
 
 - Primary skill: `$sales-follow-up`
 - Authoring profile: thin

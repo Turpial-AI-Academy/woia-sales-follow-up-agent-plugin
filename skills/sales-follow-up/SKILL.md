@@ -4,7 +4,7 @@ description: Plan, draft, execute, or audit an authorized lead/customer follow-u
 license: MIT
 metadata:
   author: Turpial AI Academy
-  version: "0.5.6"
+  version: "0.5.7"
 ---
 
 # Sales Follow-up
