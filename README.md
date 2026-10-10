@@ -1,6 +1,6 @@
 # woia-sales-follow-up
 
-WOIA Sales v0.5.7 provider for `sales.follow-up`.
+WOIA Sales v0.5.8 provider for `sales.follow-up`.
 
 - Primary skill: `$sales-follow-up`
 - Authoring profile: thin
@@ -8,7 +8,9 @@ WOIA Sales v0.5.7 provider for `sales.follow-up`.
 
 Capability-owned deterministic tools/templates live in this plugin. Generic certification/release tooling lives in `woia-ecosystem`.
 
-Real Estate actions are plan/draft only, with host-resolved scoped guards; Customer Service dispatches through Communications. Generic legacy validation remains compatible. See [scope contract](skills/sales-follow-up/references/scope-contract.md).
+The authenticated host supplies permitted actions and exact current subject/recipient/policy scope. `evaluateFollowUp` intersects method restrictions with grants before preparing a proposal; no transport is bundled. The CLI checks plan structure only. See [scope contract](skills/sales-follow-up/references/scope-contract.md).
+
+Run `node --test tests/*.test.mjs` for the scoped evaluator and then certify the committed candidate with Ecosystem.
 
 ## Maintenance
 

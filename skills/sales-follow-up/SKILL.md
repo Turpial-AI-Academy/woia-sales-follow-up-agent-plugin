@@ -4,7 +4,7 @@ description: Plan, draft, execute, or audit an authorized lead/customer follow-u
 license: MIT
 metadata:
   author: Turpial AI Academy
-  version: "0.5.7"
+  version: "0.5.8"
 ---
 
 # Sales Follow-up
@@ -25,11 +25,11 @@ Drafting has no external communication effect. Sending does.
 
 Never interpret access to email/WhatsApp/CRM messaging tools as authorization to contact a person.
 
-## Real Estate scope (mandatory before execution)
+## Effective actions
 
-Read [scope contract](references/scope-contract.md). The host resolves trusted scope; caller plan flags cannot select generic mode. In Real Estate this provider produces plan/draft/context only. Customer Service executes external communication through woia-communications. Use evaluateFollowUp for deterministic effective actions; legacy CLI structural PASS is not a grant or dispatch permission.
+Read [scope contract](references/scope-contract.md). The authenticated host supplies current policy, grants and `permitted_actions` after resolving method restrictions. Use `evaluateFollowUp(action, plan, context)` before any contribution. It intersects method actions with grants and binds the plan digest, subject and recipient. The structural CLI does not grant dispatch permission.
 
-## Generic legacy execution
+## Authorized channel execution
 
 Use the selected channel integration only. Do not widen recipient list or message scope after approval.
 
